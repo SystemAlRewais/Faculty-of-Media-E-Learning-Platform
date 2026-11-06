@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة تحكم الإدارة - منصة كلية الإعلام</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <!-- القائمة الجانبية للإدارة -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>لوحة تحكم الإدارة</h3>
+        <p>كلية الإعلام - جامعة الأزهر</p>
+      </div>
+      
+      <ul class="sidebar-menu">
+        <li><a href="#" class="active">إدارة النظام</a></li>
+        <li><a href="#students">إدارة الطلاب</a></li>
+        <li><a href="#content">إدارة المحتوى والكتب</a></li>
+        <li><a href="#attendance-mgmt">نظام الحضور والغياب (GPS)</a></li>
+        <li><a href="#complaints-mgmt">متابعة الشكاوى</a></li>
+      </ul>
+
+      <div>
+        <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+      </div>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+      <div class="top-bar">
+        <h1>لوحة الإدارة المركزية</h1>
+        <span style="background: #e1f5fe; color: #0277bd; padding: 5px 12px; border-radius: 20px; font-weight: bold; font-size: 13px;">مسؤول النظام (Admin)</span>
+      </div>
+
+      <!-- إحصائيات سريعة للإدارة -->
+      <div class="cards-grid">
+        <div class="card">
+          <h3>إجمالي الطلاب المسجلين</h3>
+          <div class="number">1,240 طالب</div>
+        </div>
+        <div class="card">
+          <h3>المقررات المتاحة</h3>
+          <div class="number">24 مادة</div>
+        </div>
+        <div class="card">
+          <h3>الشكاوى الواردة</h3>
+          <div class="number">3 شكاوى جديدة</div>
+        </div>
+      </div>
+
+      <!-- قسم إدارة الطلاب -->
+      <div class="content-section" id="students">
+        <h2>إدارة الطلاب (إضافة وتعديل)</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+          <input type="text" id="newStudentName" placeholder="اسم الطالب الثلاثي" style="padding: 10px; border: 1px solid #ced4da; border-radius: 6px;">
+          <input type="text" id="newStudentCode" placeholder="كود الطالب" style="padding: 10px; border: 1px solid #ced4da; border-radius: 6px;">
+          <select id="newStudentYear" style="padding: 10px; border: 1px solid #ced4da; border-radius: 6px;">
+            <option value="الفرقة الأولى">الفرقة الأولى</option>
+            <option value="الفرقة الثانية">الفرقة الثانية</option>
+            <option value="الفرقة الثالثة">الفرقة الثالثة</option>
+            <option value="الفرقة الرابعة">الفرقة الرابعة</option>
+          </select>
+          <button class="btn-primary" onclick="alert('تم إضافة الطالب بنجاح (تجريبي)')">إضافة الطالب</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>كود الطالب</th>
+              <th>الاسم</th>
+              <th>الفرقة</th>
+              <th>الحالة</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2026001</td>
+              <td>أحمد محمد إبراهيم</td>
+              <td>الفرقة الثالثة</td>
+              <td><span style="color: green; font-weight: bold;">نشط</span></td>
+              <td><button style="background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">حظر</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- قسم الحضور والغياب (GPS) -->
+      <div class="content-section" id="attendance-mgmt">
+        <h2>إدارة الحضور والغياب الذكي (GPS)</h2>
+        <p style="font-size: 14px; color: #6c757d; margin-bottom: 15px;">قم بتحديد إحداثيات القاعة والكود السري لمحاضرة اليوم.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+          <input type="text" placeholder="اسم المادة" style="padding: 10px; border: 1px solid #ced4da; border-radius: 6px;">
+          <input type="text" placeholder="الكود السري (مثال: 7788)" style="padding: 10px; border: 1px solid #ced4da; border-radius: 6px;">
+          <input type="text" placeholder="أقصى مسافة بالسماح (متر)" value="50" style="padding: 10px; border: 1px solid #ced4da; border-radius: 6px;">
+          <button class="btn-primary" onclick="alert('تم فتح جلسة الحضور بنجاح')">فتح جلسة الحضور</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
