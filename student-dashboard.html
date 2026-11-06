@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة تحكم الطالب - منصة كلية الإعلام</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <!-- القائمة الجانبية للطالب -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>بوابة الطالب</h3>
+        <p id="studentYearDisplay">الفرقة الدراسية</p>
+      </div>
+      
+      <ul class="sidebar-menu">
+        <li><a href="#" class="active">الرئيسية والبيانات</a></li>
+        <li><a href="#courses">المقررات والكتب</a></li>
+        <li><a href="#attendance">الحضور والغياب (GPS)</a></li>
+        <li><a href="#schedule">الجداول الدراسية</a></li>
+        <li><a href="#grades">كشف الدرجات</a></li>
+        <li><a href="#forum">منتدى النقاش</a></li>
+        <li><a href="#complaints">قسم الشكاوى</a></li>
+      </ul>
+
+      <div>
+        <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+      </div>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+      <div class="top-bar">
+        <h1 id="welcomeStudentName">أهلاً بك يا طالب</h1>
+        <span id="studentCodeBadge" style="background: var(--light-blue); color: var(--dark-blue); padding: 5px 12px; border-radius: 20px; font-weight: bold; font-size: 13px;">الكود: --</span>
+      </div>
+
+      <!-- إحصائيات سريعة -->
+      <div class="cards-grid">
+        <div class="card">
+          <h3>المقررات المسجلة</h3>
+          <div class="number">6 مواد</div>
+        </div>
+        <div class="card">
+          <h3>محاضرات تم حضورها</h3>
+          <div class="number">12 محاضرة</div>
+        </div>
+        <div class="card">
+          <h3>التقدير العام</h3>
+          <div class="number">امتياز / جيد جداً</div>
+        </div>
+      </div>
+
+      <!-- قسم البيانات والمقررات -->
+      <div class="content-section" id="courses">
+        <h2>المقَررات والكتب الدراسية</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>اسم المادة</th>
+              <th>أستاذ المادة</th>
+              <th>التحميل والمعاينة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>مدخل إلى وسائل الاتصال</td>
+              <td>د. أحمد محمد</td>
+              <td><button class="btn-primary" style="padding: 6px 12px; font-size: 12px; width: auto;">تحميل الكتاب</button></td>
+            </tr>
+            <tr>
+              <td>فنون الكتابة الصحفية</td>
+              <td>د. محمود حسن</td>
+              <td><button class="btn-primary" style="padding: 6px 12px; font-size: 12px; width: auto;">تحميل الكتاب</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- قسم الحضور الذكي -->
+      <div class="content-section" id="attendance">
+        <h2>تسجيل الحضور والغياب الذكي (GPS)</h2>
+        <p style="margin-bottom: 15px; font-size: 14px; color: #6c757d;">يرجى إدخال الكود السري الذي يمليه الدكتور في المحاضرة مع تفعيل موقع الهاتف (GPS) لتأكيد الحضور.</p>
+        <div style="display: flex; gap: 10px; max-width: 400px;">
+          <input type="text" id="secretCodeInput" placeholder="أدخل الكود السري للمحاضرة" style="padding: 10px; border: 1px solid #ced4da; border-radius: 6px; flex-grow: 1;">
+          <button class="btn-primary" style="width: auto; padding: 10px 20px;" onclick="alert('سيتم تفعيل ربط الـ GPS قريباً عند ربط السحابة')">تسجيل الحضور</button>
+        </div>
+      </div>
+
+      <!-- قسم الشكاوى -->
+      <div class="content-section" id="complaints">
+        <h2>قسم الشكاوى والمقترحات</h2>
+        <div class="form-group" style="margin-bottom: 10px;">
+          <textarea id="complaintText" placeholder="اكتب شكواك أو مقترحك ليصل مباشرة لإدارة الكلية..." style="width: 100%; height: 100px; padding: 10px; border: 1px solid #ced4da; border-radius: 8px;"></textarea>
+        </div>
+        <button class="btn-primary" style="width: auto; padding: 10px 25px;" onclick="alert('تم إرسال شكواك بنجاح للإدارة')">إرسال الشكوى</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/student.js"></script>
+</body>
+</html>
