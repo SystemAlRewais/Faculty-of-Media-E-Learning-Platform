@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول - منصة كلية الإعلام جامعة الأزهر</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- حاوية تسجيل الدخول -->
+  <div class="login-wrapper">
+    <div class="login-container">
+      <h2>كلية الإعلام - جامعة الأزهر</h2>
+      <p>منصة الخدمات الطلابية والإلكترونية</p>
+      
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="userRole">نوع الدخول</label>
+          <select id="userRole" onchange="toggleRoleFields()">
+            <option value="student">طالب</option>
+            <option value="admin">لوحة الإدارة (Admin)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label id="codeLabel" for="username">كود الطالب</label>
+          <input type="text" id="username" placeholder="أدخل الكود الخاص بك" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">كلمة المرور</label>
+          <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+        </div>
+
+        <button type="submit" class="btn-primary">تسجيل الدخول</button>
+      </form>
+      
+      <div id="loginMessage" style="margin-top: 15px; font-size: 14px;"></div>
+    </div>
+  </div>
+
+  <!-- التذييل الثابت المطلوب -->
+  <footer>
+    تم التنفيذ والتطوير بواسطة: (أحمد سمير) | (عمار منصور)
+  </footer>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
